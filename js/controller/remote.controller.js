@@ -17,7 +17,7 @@
       vm.volume_down = volume_down;
       vm.volume_mute = volume_mute;
       vm.play_pause = 'pause'
-      vm.album_art = $cookies.get('base_url')+'album_art?'+Math.random();
+
 
       (function initController() {
         // reset login status
@@ -27,6 +27,7 @@
       function updateStatus(){
         ConnectionService.Status($cookies.get('base_url')).then(function(response){
           vm.status = response.return.status;
+          vm.album_art = $cookies.get('base_url')+'album_art?'+Math.random();
           vm.volume_level = parseFloat(vm.status.session.volume) * 100;
           if(vm.volume_level == 0){
             vm.mute = 'btn-danger';

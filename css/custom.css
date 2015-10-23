@@ -1,0 +1,25 @@
+.album-art {
+    height: 250px;
+    display: inline;
+    z-index: -10;
+    width: 100%;
+}
+
+.content{
+    margin-top: 72px;
+    margin-bottom: 30px;
+}
+
+.error {
+    color: #b33;
+}
+
+.pi-buttons{
+    font-size: 30px;
+}
+.pi-controls button{
+    margin-top: 10px;
+}
+
+.middle-align {
+}

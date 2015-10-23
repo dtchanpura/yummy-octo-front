@@ -1,0 +1,33 @@
+<h1>{{vm.title}}</h1>
+<hr>
+<p>Try Logging in as we have it all.</p>
+
+  <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
+  <form name="form" role="form" class="form-horizontal" ng-submit="vm.login()">
+      <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+          <label for="username" class="col-sm-2 control-label">Username</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="username" name="username"
+              type="text" value="" ng-model="vm.username">
+          </div>
+          <span ng-show="form.username.$dirty && form.username.$error.required" class="col-sm-6 error">
+            Username is required
+          </span>
+      </div>
+      <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+          <label for="password" class="col-sm-2 control-label">Password</label>
+          <div class="col-sm-4">
+            <input class="form-control" id="password" name="password"
+              placeholder="password" type="password" value="" ng-model="vm.password">
+          </div>
+          <span ng-show="form.password.$dirty && form.password.$error.required" class="col-sm-6 error">
+            Password is required
+          </span>
+      </div>
+      <br>
+      <div class="form-actions">
+              <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-primary">Login</button>
+              <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              <button class="btn btn-default">Register</button>
+      </div>
+  </form>

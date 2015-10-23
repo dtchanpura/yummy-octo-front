@@ -3,12 +3,13 @@
 
     angular
         .module('app')
-        .controller('MainController', MainController)
+        .controller('MainController', MainController);
 
-    MainController.$inject = ['$location', '$cookies', 'FlashService', 'ConnectionService']
+  MainController.$inject = ['$location', '$cookies', 'FlashService', 'ConnectionService'];
   function MainController($location, $cookies, FlashService, ConnectionService) {
     var vm = this;
     vm.title = "Hello!";
+    vm.display_status = "none";
     vm.validate_connection = validate_connection;
 
     function validate_connection(){
@@ -26,7 +27,7 @@
           FlashService.Error(response.message);
           vm.dataLoading = false;
         }
-      })
+      });
     }
 
 }}

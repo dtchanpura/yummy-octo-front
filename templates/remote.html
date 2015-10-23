@@ -36,4 +36,13 @@
             <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
         </button>
     </div>
+    <div class="btn-group">
+        <button class="btn btn-default">
+            <span class="glyphicon glyphicon-{{vm.check_queue}}" aria-hidden="true"></span> 
+                Queued <span class="badge">{{vm.queue_length}}</span></a>
+        </button>
+        <button class="btn btn-default">
+            <span class="glyphicon glyphicon-{{vm.check_session}}" aria-hidden="true"></span> Session
+        </button>
+    </div>
 </div>

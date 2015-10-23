@@ -16,7 +16,7 @@
       vm.volume_up = volume_up;
       vm.volume_down = volume_down;
       vm.volume_mute = volume_mute;
-      vm.play_pause = 'pause'
+      vm.play_pause = 'pause';
 
 
       (function initController() {

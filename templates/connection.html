@@ -7,8 +7,8 @@ By default the port number will be 5000</p>
   <div ng-show="vm.error" class="alert alert-danger">{{vm.error}}</div>
   <form name="form" role="form" class="form-horizontal" ng-submit="vm.validate_connection()">
       <div class="form-group" ng-class="{ 'has-error': form.ip_address.$dirty && form.ip_address.$error.required }">
-          <label for="ip_address" class="col-sm-2 control-label">IP Address</label>
-          <div class="col-sm-4">
+          <label for="ip_address" class="col-sm-4 control-label">IP Address</label>
+          <div class="col-sm-6">
             <input class="form-control" id="ip_address" name="ip_address"
               placeholder="Your Pi's IP Address" type="text" value="" ng-model="vm.ip_address">
           </div>
@@ -17,7 +17,7 @@ By default the port number will be 5000</p>
           </span>
       </div>
       <div class="form-group" ng-class="{ 'has-error': form.port.$dirty && form.port.$error.required }">
-          <label for="port" class="col-sm-2 control-label">Port</label>
+          <label for="port" class="col-sm-4 control-label">Port</label>
           <div class="col-sm-4">
             <input class="form-control" id="port" name="port"
               placeholder="5000" type="text" value="" ng-model="vm.port">

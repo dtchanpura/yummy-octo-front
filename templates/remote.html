@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="pi-controls">
-    <div class="btn-group">
+    <div class="btn-group mission-control">
         <button class="btn btn-default {{ vm.session_down }}" ng-click="vm.previous()">
             <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
         </button>
@@ -24,7 +24,7 @@
             <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
         </button>
     </div>
-    <div class="btn-group">
+    <div class="btn-group mission-control">
         <button class="btn btn-default {{vm.vol_down}} {{ vm.session_down }}" ng-click="vm.volume_down()">
             <span class="glyphicon glyphicon-volume-down" aria-hidden="true"></span>
         </button>
@@ -36,7 +36,7 @@
             <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
         </button>
     </div>
-    <div class="btn-group">
+    <div class="btn-group mission-control">
         <button class="btn btn-default {{ vm.session_down }}"  ng-click="vm.queue_f()" >
             <span class="glyphicon glyphicon-{{vm.check_queue}}" aria-hidden="true"></span>
                 Queued <span class="badge">{{vm.queue_length}}</span></a>

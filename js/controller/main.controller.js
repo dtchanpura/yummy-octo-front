@@ -14,18 +14,18 @@
 
     function validate_connection(){
       vm.dataLoading = true;
+      var CorsFlag = true;
       ConnectionService.Connect(vm.ip_address, vm.port).then(function(response) {
-        if (response.ok) {
+        if (response !== undefined && response.ok) {
           // console.log('True that');
           $cookies.put('base_url', 'http://'+vm.ip_address+':'+vm.port+'/');
           // $cookies.put('ip_address', vm.ip_address);
           // $cookies.put('port', vm.port);
-          vm.dataLoading = false;
+          CorsFlag = false;
           $location.path('/login');
         } else {
-          // console.log('False that');
-          FlashService.Error(response.message);
           vm.dataLoading = false;
+            FlashService.Error('Connection to the Server failed.');
         }
       });
     }

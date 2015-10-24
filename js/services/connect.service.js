@@ -16,11 +16,12 @@
         service.Register = Register;
         service.Queue = Queue;
         service.StartDaemon = StartDaemon;
-        
+        service.QuitSession = QuitSession;
+
         return service;
 
         function Connect(ip_address, port) {
-            return $http.get('http://'+ip_address+':'+port+'/status').then(handleSuccess, handleError('Connection Error'));
+            return $http.get('http://'+ip_address+':'+port+'/status').then(handleSuccess, handleError);
         }
         function Status(base_url) {
           return $http.get(base_url+'status').then(handleSuccess, handleError('Connection Error'));
@@ -39,6 +40,9 @@
         }
         function StartDaemon(base_url, params){
           return $http.post(base_url+'start_daemon', params).then(handleSuccess, handleError('Unable to start daemon.'));
+        }
+        function QuitSession(base_url, params){
+          return $http.post(base_url+'quit', params).then(handleSuccess, handleError);
         }
         function handleSuccess(res) {
           return res.data;

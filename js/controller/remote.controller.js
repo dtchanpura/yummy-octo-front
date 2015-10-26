@@ -21,7 +21,7 @@
       vm.play_pause = 'pause';
       vm.nav_content = "glyphicon glyphicon-refresh";
       vm.queue_length = "0";
-      vm.check_queue = "ok-circle";
+      vm.check_queue = "remove-circle";
       vm.check_session = "flash";
       vm.startDaemon = startDaemon;
       vm.quitSession = quitSession;
@@ -134,7 +134,14 @@
       }
       function queue_f(){
         if(vm.queue_length === "0"){
-          ConnectionService.Queue($cookies.get('base_url'), {token: $cookies.get('token'), path: '~/Music'}).then(function(response){
+          vm.queue_path_btn = 'disabled';
+          var pth;
+          if(vm.queue_path === undefined){
+            pth = '~/Music';
+          } else {
+            pth = vm.queue_path;
+          }
+          ConnectionService.Queue($cookies.get('base_url'), {token: $cookies.get('token'), path: pth}).then(function(response){
             if(response !== undefined && response.ok){
               updateStatus();
             }
@@ -151,6 +158,7 @@
       function quitSession(){
         ConnectionService.QuitSession($cookies.get('base_url'), {token: $cookies.get('token')}).then(function(response){
           if(response !== undefined && response.ok){
+            vm.check_queue = "remove-circle";
             vm.check_session = 'flash';
             updateStatus();
           } else {

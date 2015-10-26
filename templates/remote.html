@@ -4,7 +4,7 @@
             <img src="{{vm.album_art}}">
         </a>
     </div>
-    <div class="col-xs-6 col-md-8 middle-align">
+    <div class="col-xs-6 col-md-5 middle-align">
         <ul class="list-group">
             <li class="list-group-item">{{ vm.status.current_track.title | limitTo: 30 }}{{vm.status.current_track.title.length > 20 ? '...' : ''}}&nbsp;</li>
             <li class="list-group-item">{{ vm.status.current_track.album }}&nbsp;</li>

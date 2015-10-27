@@ -25,7 +25,6 @@
       vm.check_session = "flash";
       vm.startDaemon = startDaemon;
       vm.quitSession = quitSession;
-
       (function initController() {
         // reset login status
           updateStatus();
@@ -43,6 +42,7 @@
               vm.session_up = '';
               //$location.path('/daemon');
             } else {
+              vm.download_path = $cookies.get('base_url')+'download_song?'+Math.random();
               vm.session_down = '';
               vm.session_up = 'disabled';
               vm.queue_length = vm.status.session.playlist_length;

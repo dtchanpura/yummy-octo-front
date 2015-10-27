@@ -5,8 +5,8 @@
         </a>
     </div>
     <div class="col-xs-6 col-md-5 middle-align">
-        <ul class="list-group">
-            <li class="list-group-item">{{ vm.status.current_track.title | limitTo: 30 }}{{vm.status.current_track.title.length > 20 ? '...' : ''}}&nbsp;</li>
+        <ul class="list-group song-details">
+            <li class="list-group-item"><a uib-tooltip="{{vm.status.current_track.title}}" tooltip-placement="bottom">{{ vm.status.current_track.title | limitTo: 30 }}{{vm.status.current_track.title.length > 20 ? '...' : ''}}&nbsp;</a></li>
             <li class="list-group-item">{{ vm.status.current_track.album }}&nbsp;</li>
             <li class="list-group-item">Length: {{ vm.status.current_track.length_mins }}</li>
         </ul>
@@ -35,6 +35,11 @@
         <button class="btn btn-default {{vm.mute}} {{ vm.session_down }}" ng-click="vm.volume_mute()">
             <span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
         </button>
+        <a href="{{vm.download_path}}" target="_top">
+          <button  class="btn btn-default {{ vm.session_down }}">
+            <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+          </button>
+        </a>
     </div>
     <div class="input-group input-group-lg">
       <input class="form-control lg" id="path" name="path" uib-tooltip="Default is ~/Music" tooltip-trigger="focus" tooltip-placement="top"

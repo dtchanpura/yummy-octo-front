@@ -11,6 +11,7 @@
       // vm.base_url = $cookies.get('base_url');
       vm.login = login;
       vm.display_status = "none";
+      vm.register = register;
 
       (function initController() {
         // reset login status
@@ -22,7 +23,9 @@
           }
       })();
 
-
+      function register(){
+        $location.path('/register');
+      }
       function login(){
         vm.dataLoading = true;
         ConnectionService.GetToken($cookies.get('base_url'), vm.username, vm.password).then(function(response){

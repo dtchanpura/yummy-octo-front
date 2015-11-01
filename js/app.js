@@ -19,9 +19,9 @@ function config($routeProvider, $locationProvider){
     controller: 'LoginController',
     controllerAs: 'vm'
   })
-  .when('/daemon', {
-    templateUrl: 'templates/daemon.html',
-    controller: 'DaemonController',
+  .when('/register', {
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterController',
     controllerAs: 'vm'
   })
   .when('/remote', {

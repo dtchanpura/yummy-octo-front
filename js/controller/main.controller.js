@@ -15,10 +15,12 @@
     function validate_connection(){
       vm.dataLoading = true;
       var CorsFlag = true;
-      ConnectionService.Connect(vm.ip_address, vm.port).then(function(response) {
+      var port_number = '';
+      if(vm.port !== undefined && vm.port !== "") {port_number = ':' + vm.port;}
+      ConnectionService.Connect(vm.ip_address, port_number).then(function(response) {
         if (response !== undefined && response.ok) {
           // console.log('True that');
-          $cookies.put('base_url', 'http://'+vm.ip_address+':'+vm.port+'/');
+          $cookies.put('base_url', 'http://'+vm.ip_address + port_number +'/');
           // $cookies.put('ip_address', vm.ip_address);
           // $cookies.put('port', vm.port);
           CorsFlag = false;

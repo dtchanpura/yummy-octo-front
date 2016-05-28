@@ -21,7 +21,7 @@
         return service;
 
         function Connect(ip_address, port) {
-            return $http.get('http://'+ip_address+':'+port+'/status').then(handleSuccess, handleError);
+            return $http.get('http://'+ip_address + port+'/check').then(handleSuccess, handleError);
         }
         function Status(base_url) {
           return $http.get(base_url+'status').then(handleSuccess, handleError('Connection Error'));

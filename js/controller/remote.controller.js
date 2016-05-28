@@ -33,10 +33,15 @@
       function updateStatus(){
         FlashService.ClearFlashMessage();
         ConnectionService.Status($cookies.get('base_url')).then(function(response){
-          if (response.ok && response.return.status !== undefined){
+          updateUI(response)
+        });
+      }
+      function updateUI(response) {
+                  if (response.ok && response.return.status !== undefined){
             vm.status = response.return.status;
+            vm.daemon = response.daemon;
 
-            if(vm.status.session === undefined){
+            if(vm.status.session === undefined || vm.daemon === false){
               FlashService.Error('Seems like daemon session is down. Click on session to start it up.')
               vm.session_down = 'disabled';
               vm.session_up = '';
@@ -59,9 +64,9 @@
                 vm.check_queue = "remove-sign";
               }
               checkVolumeStatus();
-              if (vm.status.session.speed == '0%'){
+              if (vm.status.session.speed === '0.0%'){
                 vm.play_pause = 'play';
-              } else {
+              } else {11
                 vm.play_pause = 'pause';
               }
             }
@@ -72,9 +77,7 @@
               $location.path('/');
               FlashService.Error('Connection to the Server failed.');
           }
-        });
       }
-
       function checkVolumeStatus(){
         vm.album_art = $cookies.get('base_url')+'album_art?'+Math.random();
         vm.volume_level = parseFloat(vm.status.session.volume) * 100;
@@ -133,7 +136,7 @@
         }
       }
       function queue_f(){
-        if(vm.queue_length === "0"){
+        if(vm.queue_length === "0" || vm.queue_length === 0){
           vm.queue_path_btn = 'disabled';
           var pth;
           if(vm.queue_path === undefined){

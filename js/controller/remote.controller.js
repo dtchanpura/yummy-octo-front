@@ -26,6 +26,8 @@
         vm.check_session = "flash";
         vm.startDaemon = startDaemon;
         vm.quitSession = quitSession;
+        vm.is_looping = "danger";
+        vm.toggle_looping = toggle_looping;
         (function initController() {
             // reset login status
             updateStatus();
@@ -70,6 +72,11 @@
                         vm.play_pause = 'play';
                     } else {
                         vm.play_pause = 'pause';
+                    }
+                    if(vm.status.session.playlist_repeat) {
+                        vm.is_looping = 'success';
+                    } else {
+                        vm.is_looping = 'danger';
                     }
                 }
             } else {
@@ -123,6 +130,10 @@
 
         function previous() {
             action('previous', '');
+        }
+
+        function toggle_looping() {
+            action('repeat', '');
         }
 
         function volume_up() {

@@ -14,11 +14,15 @@
     color: #b33;
 }
 
-.pi-buttons{
+.pi-buttons {
     font-size: 30px;
 }
-.pi-controls button{
+.pi-controls {
+    width: 100%;
+}
+.pi-controls button,a {
     margin-top: 10px;
+
 }
 
 .middle-align {
@@ -27,6 +31,30 @@
 .mission-control button {
   font-size: 16px;
 }
+.mission-control a {
+  font-size: 16px;
+}
 .song-details a:hover{
   text-decoration: none;
+}
+.mission-control {
+    /*background: none;*/
+    opacity: 0.85;
+}
+.list-btn-control-4 {
+    width: 25%;
+    font-size: 16px;
+}
+
+.list-btn-control-vol {
+    font-size: 16px;
+    width: 20%;
+}
+.list-btn-control-session-8 {
+    font-size: 20px;
+    width: 79%;
+}
+.list-btn-control-session-2 {
+    font-size: 20px;
+    width: 20%;
 }
